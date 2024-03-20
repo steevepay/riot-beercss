@@ -1,0 +1,24 @@
+<c-input>
+    <div class="
+        field border
+        { props?.round ? " round" : ''}
+        { props?.fill ? " fill" : ''}
+        { props?.small ? " small" : ''}
+        { props?.medium ? " medium" : ''}
+        { props?.large ? " large" : ''}
+        { props?.extra ? " extra" : ''}
+        { props?.error ? " invalid" : '' }
+        { props?.label ? " label" : '' }
+        { props?.icon || props?.loading ? " prefix" : '' }
+        { props?.iconend || props?.loadingend  ? " suffix" : '' }
+    ">
+        <progress if={ props?.loading } class="circle"></progress>
+        <i if={ props?.icon && !props?.loading }>{ props?.icon }</i>
+        <input type={props?.type ?? 'text'} value={ props?.value }>
+        <label if={ props?.label }>{ props.label }</label>
+        <i if={ props?.iconend && !props?.loadingend }>{ props?.iconend }</i>
+        <progress if={ props?.loadingend } class="circle"></progress>
+        <span class="helper" if={ props?.helper && !props?.error }>{ props.helper }</span>
+        <span class="error" if={ props?.error }>{ props.error }</span>
+    </div>
+</c-input>

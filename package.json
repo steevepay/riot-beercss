@@ -1,0 +1,21 @@
+{
+  "name": "riot-beercss",
+  "version": "1.0.0",
+  "description": "Material Design Components made with RiotJS and BeerCSS",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "steevepay",
+  "license": "ISC",
+  "devDependencies": {
+    "riot": "=9.1.4",
+    "rollup-plugin-riot": "=9.0.2",
+    "vite": "=5.1.1"
+  },
+  "dependencies": {
+    "beercss": "=3.5.1",
+    "material-dynamic-colors": "=1.1.0"
+  }
+}

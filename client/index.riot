@@ -1,0 +1,26 @@
+<index-riot>
+    <div style="width:500px;padding:20px;">
+        <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
+        <c-input label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+        <c-input helper="This is a helper" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>        
+        <c-input error="Something is wrong" helper="This is a helper" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>        
+        <c-input icon="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+        <c-input iconend="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+        <c-input icon="search" iconend="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+        <c-input loading="true" icon="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+        <c-input loadingend="true" iconend="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+        <c-input fill="true" round="true" small="true" label="Test" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
+    </div>
+    <script>
+        import cInput from "../components/c-input.riot";
+
+        export default {
+            components: {
+                cInput
+            },
+            state: {
+                firstname: 'Default name'
+            }
+        }
+    </script>
+</index-riot>

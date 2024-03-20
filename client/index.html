@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <title>RiotJS + BeerCSS</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module">
+      /** Load riot.js **/
+      import * as riot from 'riot'
+      import App from './index.riot'
+
+      /** Load BeerCSS **/
+      import "beercss";
+      import "material-dynamic-colors";
+
+      const mountApp = riot.component(App)
+      mountApp(document.getElementById('root'))
+    </script>
+  </body>
+</html>
