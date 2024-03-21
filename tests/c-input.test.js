@@ -3,6 +3,10 @@ import render from '@riotjs/ssr'
 
 import cInput from '../components/c-input.riot'
 
+/** TODO: 
+ * - [ ] Test all input props
+ */
+
 describe('Component c-input', () => {
     it('should render the input without props', () => {
         const html = render('c-input', cInput, {})
