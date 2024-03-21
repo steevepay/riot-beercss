@@ -5,14 +5,16 @@
   "main": "index.js",
   "scripts": {
     "dev": "vite",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "vitest"
   },
   "author": "steevepay",
   "license": "ISC",
   "devDependencies": {
+    "@riotjs/ssr": "=9.0.0",
     "riot": "=9.1.4",
     "rollup-plugin-riot": "=9.0.2",
-    "vite": "=5.1.1"
+    "vite": "=5.1.1",
+    "vitest": "=1.4.0"
   },
   "dependencies": {
     "beercss": "=3.5.1",
