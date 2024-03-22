@@ -6,8 +6,5 @@ export default defineConfig({
   build: { 
     minify       : 'esbuild',
     target       : 'esnext'
-  },
-  test: {
-    environment: 'node'
-  },
+  }
 })
