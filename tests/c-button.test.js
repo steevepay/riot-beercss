@@ -98,5 +98,9 @@ describe('c-button', () => {
         assert.strictEqual(getResult(t.task.name), '<c-button class="custom-class" small="true" fill="true"><button class="fill small custom-class"></button></c-button>');
     })
 
+    it('mixed', (t) => {  
+        assert.strictEqual(getResult(t.task.name), '<c-button icon="edit" primary="true" outlined="true" smallelevate="true" large="true"><button class="primary large border small-elevate"><i>edit</i><span>Edit</span></button></c-button>');
+    })
+
 
 });
