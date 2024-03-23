@@ -1,6 +1,54 @@
 <c-button>
-    <button>
-        <i>home</i>
-        <span>Button</span>
+    <button
+        class="
+         { props?.transparent ? ' transparent' : ''}
+         { props?.primary ? ' primary' : ''}
+         { props?.fill ? ' fill' : ''}
+         { props?.secondary ? ' secondary' : ''}
+         { props?.tertiary ? ' tertiary' : ''}
+
+         { props?.small ? ' small' : '' }
+         { props?.medium ? ' medium' : '' }
+         { props?.large ? ' large' : '' }
+         { props?.extra ? ' extra' : '' }
+
+         { props?.responsive ? ' responsive' : '' }
+         { props?.outlined ? ' border' : '' }
+         { props?.smallround ? ' small-round' : '' }
+         { props?.round ? ' round' : '' }
+         { props?.circle ? ' circle' : ''}
+         { props?.square ? ' square' : ''}
+         { props?.leftround ? ' left-round' : ''}
+         { props?.rightround ? ' right-round' : ''}
+         { props?.topround ? ' top-round' : ''}
+         { props?.bottomround ? ' bottom-round' : ''}
+
+         { props?.vertical ? ' vertical' : '' }
+
+         { props?.extend ? ' extend' : '' }
+
+         { props?.smallelevate ? ' small-elevate' : '' }
+         { props?.mediumelevate ? ' medium-elevate' : '' }
+         { props?.largeelevate ? ' medium-elevate' : '' }
+
+         { props?.class }
+        "
+    >
+        <img class={props?.inline ? null : "responsive" } if={ props?.img } src={ props.img }>
+        <i if={ props?.icon }>{ props.icon }</i>
+        <span if={ state.hasText === true }><slot></slot></span>
+        <slot name="badge"></slot>
     </button>
+    <script>
+        export default {
+            onMounted() {
+                if (this.slots.find(el => el.id === 'default')) {
+                    this.update({ hasText : true });
+                }
+            },
+            state: {
+                hasText: false
+            }
+        }
+    </script>
 </c-button>

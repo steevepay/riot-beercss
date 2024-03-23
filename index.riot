@@ -1,6 +1,95 @@
 <index-riot>
-    <div style="width:500px;padding:20px;">
+    <div style="width:600px;padding:20px;">
         <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
+        <h5 style="margin-bottom:20px">Button</h5>
+        <c-button>Button</c-button>
+        <c-button icon="home">Button</c-button>
+        <c-button img="./favicon.png" inline="true">Button</c-button>
+        <c-button img="./favicon.png">Button</c-button>
+        <br><br>
+        <c-button smallround="true">Button</c-button>
+        <c-button smallround="true" icon="home">Button</c-button>
+        <c-button smallround="true" img="./favicon.png" inline="true">Button</c-button>
+        <c-button smallround="true" img="./favicon.png">Button</c-button>
+        <br><br>
+        <c-button smallround="true" secondary="true" small="true">Button</c-button>
+        <c-button smallround="true" icon="home" secondary="true" small="true">Button</c-button>
+        <c-button smallround="true" img="./favicon.png" inline="true" secondary="true" small="true">Button</c-button>
+        <c-button smallround="true" img="./favicon.png" secondary="true" small="true">Button</c-button>
+        <br><br>
+        <c-button smallround="true" tertiary="true" small="true">Button</c-button>
+        <c-button smallround="true" icon="home" tertiary="true" small="true">Button</c-button>
+        <c-button smallround="true" img="./favicon.png" inline="true" tertiary="true" small="true">Button</c-button>
+        <c-button smallround="true" img="./favicon.png" tertiary="true" small="true">Button</c-button>
+        <br><br>
+        <c-button outlined="true">Button</c-button>
+        <c-button outlined="true" icon="home">Button</c-button>
+        <c-button outlined="true" img="./favicon.png" inline="true">Button</c-button>
+        <c-button outlined="true" img="./favicon.png">Button</c-button>
+        <br><br>
+        <c-button outlined="true" smallround="true">Button</c-button>
+        <c-button outlined="true" smallround="true" icon="home">Button</c-button>
+        <c-button outlined="true" smallround="true" img="./favicon.png" inline="true">Button</c-button>
+        <c-button outlined="true" smallround="true" img="./favicon.png">Button</c-button>
+        <br><br>
+        <c-button circle="true" icon="home">
+            <c-badge slot="badge">1</c-badge>
+        </c-button>
+        <c-button smallround="true" icon="home">
+            Button
+            <c-badge slot="badge" inline="true">1</c-badge>
+        </c-button>
+        <br><br>
+        <c-button smallround="true" icon="home" responsive="true">Button</c-button>
+
+        
+        <h5 style="margin-bottom:20px">FABs</h5>
+        <c-button icon="add" square="true"></c-button>
+        <c-button icon="add" square="true" round="true"></c-button>
+        <c-button icon="add" circle="true"></c-button>
+        <c-button icon="add" circle="true" leftround="true" topround="true"></c-button>
+        <c-button icon="add" circle="true" leftround="true" bottomround="true"></c-button>
+        <c-button icon="add" circle="true" rightround="true" topround="true"></c-button>
+        <c-button icon="add" circle="true" rightround="true" bottomround="true"></c-button>
+        <c-button icon="add" circle="true" leftround="true"></c-button>
+        <c-button icon="add" circle="true" rightround="true" ></c-button>
+        <br><br>
+        <c-button outlined="true" icon="add" square="true"></c-button>
+        <c-button outlined="true" icon="add" square="true" round="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true" leftround="true" topround="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true" leftround="true" bottomround="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true" rightround="true" topround="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true" rightround="true" bottomround="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true" leftround="true"></c-button>
+        <c-button outlined="true" icon="add" circle="true" rightround="true" ></c-button>
+        <br><br>
+        <c-button outlined="true" img="./favicon.png" square="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" square="true" round="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true" leftround="true" topround="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true" leftround="true" bottomround="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true" rightround="true" topround="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true" rightround="true" bottomround="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true" leftround="true"></c-button>
+        <c-button outlined="true" img="./favicon.png" circle="true" rightround="true" ></c-button>
+        <br><br>
+        <c-button icon="add" square="true" extend="true">Add</c-button>
+        <c-button icon="add" square="true" round="true" extend="true">Add</c-button>
+        <c-button icon="add" circle="true" extend="true">Add</c-button>
+        <c-button icon="add" circle="true" leftround="true" topround="true" extend="true">Add</c-button>
+
+        <!-- TODO: Investigate why it does not work
+        <h5 style="margin-bottom:20px">Button Groups</h5>
+
+        <c-button-group>
+            <c-button icon="search" vertical="true" outlined="true" large="true"/>
+            <c-button icon="edit" vertical="true" outlined="true" large="true"/>
+            <c-button icon="home" vertical="true" outlined="true" large="true"/>
+        </c-button-group>
+        -->
+
+        <h5 style="margin-bottom:20px">Input</h5>
         <c-input label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
         <c-input helper="This is a helper" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>        
         <c-input error="Something is wrong" helper="This is a helper" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>        
@@ -13,10 +102,16 @@
     </div>
     <script>
         import cInput from "./components/c-input.riot";
+        import cButton from "./components/c-button.riot";
+        import cButtonGroup from "./components/c-button-group.riot";
+        import cBadge from "./components/c-badge.riot";
 
         export default {
             components: {
-                cInput
+                cInput,
+                cButton,
+                cButtonGroup,
+                cBadge
             },
             state: {
                 firstname: 'Default name'
