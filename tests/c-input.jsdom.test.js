@@ -27,8 +27,7 @@ describe('Component c-input', () => {
         assert.strictEqual(component.root.querySelector('input').value, 'firstname');
         component.root.querySelector('input').value = "Jimmy"
         // Listen to On-change Event
-        component.root.querySelector('input').addEventListener('change', (ev) => {
-            console.log("VALUE CHANGED", ev.target.value);  
+        component.root.querySelector('input').addEventListener('change', (ev) => { 
             assert.strictEqual(component.root.querySelector('input').value, 'Jimmy');
         })
         // Dispatch a change event

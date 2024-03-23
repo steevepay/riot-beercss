@@ -1,35 +1,35 @@
 <c-button>
     <button
         class="
-         { props?.transparent ? ' transparent' : ''}
-         { props?.primary ? ' primary' : ''}
-         { props?.fill ? ' fill' : ''}
-         { props?.secondary ? ' secondary' : ''}
-         { props?.tertiary ? ' tertiary' : ''}
+         { props?.transparent ? ' transparent' : null }
+         { props?.primary ? ' primary' : null }
+         { props?.fill ? ' fill' : null }
+         { props?.secondary ? ' secondary' : null }
+         { props?.tertiary ? ' tertiary' : null }
 
-         { props?.small ? ' small' : '' }
-         { props?.medium ? ' medium' : '' }
-         { props?.large ? ' large' : '' }
-         { props?.extra ? ' extra' : '' }
+         { props?.small ? ' small' : null }
+         { props?.medium ? ' medium' : null }
+         { props?.large ? ' large' : null }
+         { props?.extra ? ' extra' : null }
 
-         { props?.responsive ? ' responsive' : '' }
-         { props?.outlined ? ' border' : '' }
-         { props?.smallround ? ' small-round' : '' }
-         { props?.round ? ' round' : '' }
-         { props?.circle ? ' circle' : ''}
-         { props?.square ? ' square' : ''}
-         { props?.leftround ? ' left-round' : ''}
-         { props?.rightround ? ' right-round' : ''}
-         { props?.topround ? ' top-round' : ''}
+         { props?.responsive ? ' responsive' : null }
+         { props?.outlined ? ' border' : null }
+         { props?.smallround ? ' small-round' : null }
+         { props?.round ? ' round' : null }
+         { props?.circle ? ' circle' : null }
+         { props?.square ? ' square' : null }
+         { props?.leftround ? ' left-round' : null }
+         { props?.rightround ? ' right-round' : null }
+         { props?.topround ? ' top-round' : null }
          { props?.bottomround ? ' bottom-round' : ''}
 
-         { props?.vertical ? ' vertical' : '' }
+         { props?.vertical ? ' vertical' : null }
 
-         { props?.extend ? ' extend' : '' }
+         { props?.extend ? ' extend' : null }
 
-         { props?.smallelevate ? ' small-elevate' : '' }
-         { props?.mediumelevate ? ' medium-elevate' : '' }
-         { props?.largeelevate ? ' medium-elevate' : '' }
+         { props?.smallelevate ? ' small-elevate' : null }
+         { props?.mediumelevate ? ' medium-elevate' : null }
+         { props?.largeelevate ? ' large-elevate' : null }
 
          { props?.class }
         "
@@ -42,7 +42,7 @@
     <script>
         export default {
             onMounted() {
-                if (this.slots.find(el => el.id === 'default')) {
+                if (this?.slots && this.slots.find(el => el.id === 'default')) {
                     this.update({ hasText : true });
                 }
             },
