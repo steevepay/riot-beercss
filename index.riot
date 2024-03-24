@@ -1,6 +1,17 @@
 <index-riot>
     <div style="width:600px;padding:20px;">
         <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
+
+        <h5 style="margin-bottom:20px">Checkbox</h5>
+
+        
+        <c-checkbox onclick={ clicked } />
+        <c-checkbox onclick={ clicked } label="Enabled" />
+        <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } />
+        <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } value={ true } />
+
+
+
         <h5 style="margin-bottom:20px">Button</h5>
         <c-button>Button</c-button>
         <c-button icon="home">Button</c-button>
@@ -105,16 +116,23 @@
         import cButton from "./components/c-button.riot";
         import cButtonGroup from "./components/c-button-group.riot";
         import cBadge from "./components/c-badge.riot";
+        import cCheckbox from "./components/c-checkbox.riot";
 
         export default {
             components: {
                 cInput,
                 cButton,
                 cButtonGroup,
-                cBadge
+                cBadge,
+                cCheckbox
             },
             state: {
                 firstname: 'Default name'
+            },
+            clicked (ev) {
+                // ev.preventDefault();
+                ev.stopPropagation();
+                console.log("clicked");
             }
         }
     </script>
