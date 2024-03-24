@@ -1,11 +1,11 @@
 <c-checkbox >
-    <label class="checkbox" onclick={ inputClick }>
+    <label class="checkbox" onclick={ clicked }>
         <input type="checkbox" value={ props?.value ? true : false  } checked={ props?.value } disabled={ props?.disabled }>
         <span>{ props.label }</span>
     </label>
     <script>
         export default {
-            inputClick (e) {
+            clicked (e) {
                 e.preventDefault();
                 e.stopPropagation();
                 this.root.value = this.props.value === true || this.props.value === "true" ? false : true;
