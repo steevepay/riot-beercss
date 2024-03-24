@@ -1,6 +1,17 @@
-<c-checkbox>
-    <label class="checkbox">
-        <input type="checkbox" checked={ props?.value } disabled={ props?.disabled }>
+<c-checkbox >
+    <label class="checkbox" onclick={ inputClick }>
+        <input type="checkbox" value={ props?.value ? true : false  } checked={ props?.value } disabled={ props?.disabled }>
         <span>{ props.label }</span>
     </label>
+    <script>
+        export default {
+            inputClick (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.root.value = this.props.value === true || this.props.value === "true" ? false : true;
+                this.root.dispatchEvent(new Event('click'));
+                this.root.dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
 </c-checkbox>

@@ -5,10 +5,10 @@
         <h5 style="margin-bottom:20px">Checkbox</h5>
 
         
-        <c-checkbox onclick={ clicked } />
-        <c-checkbox onclick={ clicked } label="Enabled" />
+        <c-checkbox onchange={ (ev) => update({ box: ev.target.value }) } value={ state.box } label={ state.box } />
+        <!-- <c-checkbox onclick={ clicked } label="Enabled" />
         <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } />
-        <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } value={ true } />
+        <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } value={ true } /> -->
 
 
 
@@ -127,12 +127,17 @@
                 cCheckbox
             },
             state: {
-                firstname: 'Default name'
+                firstname: 'Default name',
+                box: true
             },
             clicked (ev) {
                 // ev.preventDefault();
-                ev.stopPropagation();
-                console.log("clicked");
+                // ev.stopPropagation();
+                // console.log("clicked", ev.target.value, ev.target.tagName);
+            // this.update({ box: ev.target.value === 'false' ? true : false })
+            },
+            changed (ev) {
+                // this.update({ box: ev.target.value  });
             }
         }
     </script>
