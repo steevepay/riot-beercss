@@ -1,0 +1,8 @@
+<c-radio >
+    <label class="radio">
+        <input type="radio" name={ props?.name } value={ props?.defaultValue } checked={ props?.defaultValue === props?.value } disabled={ props?.disabled }>
+        <span>
+            <slot></slot>
+        </span>
+    </label>
+</c-radio>
