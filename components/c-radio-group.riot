@@ -1,6 +1,6 @@
 <c-radio-group class="field middle-align">
     <nav>
-        <slot checked={ state.value }></slot>
+        <slot></slot>
     </nav>
     <span class="helper" if={ props?.helper && !props?.error }>{ props.helper} </span>
     <span class="error" if={ props?.error }>{ props.error}</span>
