@@ -1,0 +1,29 @@
+<c-select>
+    <div class="field suffix 
+                {props?.label ? ' label' : null }
+                {props?.error ? ' invalid' : null }
+
+                { props?.outlined ? ' border' : null }
+                { props?.round ? ' round' : null }
+                { props?.fill ? ' fill' : null }
+
+                { props?.small ? ' small' : null }
+                { props?.medium ? ' medium' : null }
+                { props?.large ? ' large' : null }
+                { props?.extra ? ' extra' : null }
+            ">
+        <select>
+            <option if={ props?.loading } disabled selected>Loading</option>
+            <option if={ !props?.loading && props.placeholder } disabled>{ props.placeholder }</option>
+            <option if={ props.itemValue && !props?.loading } each={option in props.options} value={ option[props.itemValue] }  key={ option[props.itemValue] } selected={ option[props.itemValue] === props.value ? true : null }>{ option[props?.itemLabel || props?.itemValue] }</option>
+            <option if={ !props.itemValue && !props?.loading }  each={option in props.options} value={ option } selected={ option === props.value ? true : null }>{ option }</option>
+        </select>
+        <label if={ props?.label }>{ props.label }</label>
+        <i if={ !props?.loading && !props?.img  && !props?.icon} >arrow_drop_down</i>
+        <i if={ !props?.loading && !props?.img  && props?.icon} >{ props.icon }</i>
+        <img if={ !props?.loading && props?.img } class="circle" src={ props.img }>
+        <progress if={ props?.loading } class="circle"></progress>
+        <span class="helper" if={ props?.helper && !props?.error }>{ props.helper }</span>
+        <span class="error" if={ props?.error }>{ props.error }</span>
+    </div>
+</c-select>
