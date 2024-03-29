@@ -1,0 +1,46 @@
+<c-table>
+    <table class="
+        { props?.leftAlign ? 'left-align ' : null }
+        { props?.centerAlign ? 'center-align ' : null }
+        { props?.rightAlign ? 'right-align ' : null }
+
+        { props?.stripes ? 'stripes ' : null }
+        { props?.outlined ? 'border ' : null }
+        { props?.scroll ? 'scroll ' : null }
+    ">
+        <thead if={ props?.columns || props?.items } class="{props?.scroll ? ' fixed' : null }">
+            <tr>
+                <th each={ col in props?.columns}  class="{col.min ? 'min' : null}">{ col.label }</th>
+                <th if={ !props?.columns } each={ col in Object.keys(props?.items?.[0])}>{ col }</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr each={ item in props?.items}>
+                <td if={ item } each={ el in Object.entries(item) }>
+                    <!-- { el?.[0] == 'diet' } { el?.[0] } -  -->
+                    <!-- if={ this.slots.find(el => el.id ===  el?.[0]) } -->
+                    <span>{ el?.[1] }</span>
+                    <!-- <slot name={ el?.[0] } item={ el?.[1] }></slot>-->
+                </td>
+            </tr>
+        </tbody>
+        <tfoot if={ props?.footer === true } class="{props?.scroll ? ' fixed' : null }">
+            <tr>
+                <th each={ col in props?.columns}  class="{col.min ? 'min' : null}">{ col.label }</th>
+                <th if={ !props?.columns } each={ header in Object.keys(props?.items?.[0])}>{ header }</th>
+            </tr>
+        </tfoot> 
+    </table>
+    <style>
+        thead, tfoot > tr > th::first-letter {
+            text-transform:capitalize;
+        }
+    </style>
+    <script>
+        export default {
+            onMounted() {
+                console.log(this);
+            }
+        }
+    </script>
+</c-table>
