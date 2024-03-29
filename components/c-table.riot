@@ -17,10 +17,7 @@
         <tbody>
             <tr each={ item in props?.items}>
                 <td if={ item } each={ el in Object.entries(item) }>
-                    <!-- { el?.[0] == 'diet' } { el?.[0] } -  -->
-                    <!-- if={ this.slots.find(el => el.id ===  el?.[0]) } -->
-                    <span>{ el?.[1] }</span>
-                    <!-- <slot name={ el?.[0] } item={ el?.[1] }></slot>-->
+                    <slot column={ el?.[0] } item={ item } value={ el?.[1] }></slot>
                 </td>
             </tr>
         </tbody>
