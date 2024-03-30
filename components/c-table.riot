@@ -1,28 +1,30 @@
 <c-table>
-    <table class="
-        { props?.leftAlign ? 'left-align ' : null }
-        { props?.centerAlign ? 'center-align ' : null }
-        { props?.rightAlign ? 'right-align ' : null }
-
-        { props?.stripes ? 'stripes ' : null }
-        { props?.outlined ? 'border ' : null }
-        { props?.scroll ? 'scroll ' : null }
-    ">
+    <table class="{ props?.leftAlign ? 'left-align ' : null }{ props?.centerAlign ? 'center-align ' : null }{ props?.rightAlign ? 'right-align ' : null }{ props?.stripes ? 'stripes ' : null }{ props?.outlined ? 'border ' : null }{ props?.scroll ? 'scroll' : null }">
         <thead if={ props?.columns || props?.items } class="{props?.scroll ? ' fixed' : null }">
             <tr>
-                <th each={ col in props?.columns}  class="{col.min ? 'min' : null}">{ col.label }</th>
+                <!-- TODO: add an header slot -->
+                <th each={ col in props?.columns}  class="{col.min ? 'min' : null}">
+                    <slot name="header" column={ col }></slot>
+                    <template if={ slots.length === 0  || !slots.find(el => el.id === 'header') }>
+                        { col.label }
+                    </template>
+                </th>
                 <th if={ !props?.columns } each={ col in Object.keys(props?.items?.[0])}>{ col }</th>
             </tr>
         </thead>
         <tbody>
             <tr each={ item in props?.items}>
                 <td if={ item } each={ el in Object.entries(item) }>
-                    <slot column={ el?.[0] } item={ item } value={ el?.[1] }></slot>
+                    <template if={ slots.length === 0  || !slots.find(el => el.id === 'item') }>
+                        { el?.[1] }
+                    </template>
+                    <slot name="item" column={ el?.[0] } item={ item } value={ el?.[1] }></slot>
                 </td>
             </tr>
         </tbody>
         <tfoot if={ props?.footer === true } class="{props?.scroll ? ' fixed' : null }">
             <tr>
+                <!-- TODO: add a footer slot -->
                 <th each={ col in props?.columns}  class="{col.min ? 'min' : null}">{ col.label }</th>
                 <th if={ !props?.columns } each={ header in Object.keys(props?.items?.[0])}>{ header }</th>
             </tr>
@@ -33,11 +35,4 @@
             text-transform:capitalize;
         }
     </style>
-    <script>
-        export default {
-            onMounted() {
-                console.log(this);
-            }
-        }
-    </script>
 </c-table>
