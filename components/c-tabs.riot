@@ -1,0 +1,26 @@
+<c-tabs>
+     <div class="tabs
+        { props?.min ? ' min' : null }
+        { props?.rightAlign ? ' right-align' : null }
+        { props?.centerAlign ? ' center-align' : null }
+        { props?.leftAlign ? ' left-align' : null }
+    ">
+        <a each={ (tab, index) in props.tabs } class="{ props.active === index ? 'active ' : null }{ props?.vertical ? 'vertical' : null }" onclick={ (ev) => clicked(ev, index) }>
+            <i if={ tab?.icon }>{ tab.icon }</i>
+            <img if={ tab?.img } class="circle" src={ tab.img }>
+            <span>{ tab.label }</span>
+        </a>
+        <slot></slot>
+    </div>
+    <script>
+        export default {
+            clicked (e, index) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.root.value = index;
+                this.root.dispatchEvent(new Event('click'));
+                this.root.dispatchEvent(new Event('change'));
+            }
+        }
+    </script>
+</c-tabs>
