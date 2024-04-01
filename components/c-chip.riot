@@ -1,7 +1,6 @@
 <c-chip>
     <a class="
             chip
-
             {props?.small ? 'small' : null }
             {props?.medium ? 'medium' : null }
             {props?.large ? 'large' : null }
@@ -14,8 +13,9 @@
             {props?.fill ? 'fill' : null }
             {props?.vertical ? 'vertical' : null }
         ">
-        <img if={ props?.img } class="responsive" src="{ props?.img }">
-        <span><slot></slot></span>
         <i if={ props?.icon }>{ props.icon }</i>
+        <img class={props?.inline ? null : "responsive" } if={ props?.img } src={ props.img }>
+        <span><slot></slot></span>
+        <i if={ props?.iconend }>{ props.iconend }</i>
     </a>
 </c-chip>
