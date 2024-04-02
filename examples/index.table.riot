@@ -1,0 +1,96 @@
+<index-riot>
+    <div style="width:800px;padding:20px;">
+        <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
+        <c-table items={ state.animals } columns={ state.columns } footer={ true } stripes={ true }>
+            <template slot="header">
+                { column.label } <c-icon tiny="true" if={ column.field === 'name' }>close</c-icon>
+            </template> 
+            <template slot="item">
+                <template if={ column !== 'diet' && column !== 'enabled' }> { value }</template>
+                <c-chip if={ column === 'diet' } round="true">
+                    { item.diet }
+                </c-chip>
+                <c-checkbox if={ column === 'enabled' } value={ value } onchange={ (ev) => changed( item.id, ev.target.value ) } />
+            </template>
+        </c-table>
+    </div>
+    <script>
+        import cChip from "../components/c-chip.riot"
+        import cCheckbox from "../components/c-checkbox.riot"
+
+        import cIcon from "../components/c-icon.riot"
+
+        import cTable from "../components/c-table.riot"
+
+        export default {
+            components: {
+                cTable,
+                cChip,
+                cCheckbox,
+                cIcon
+            },
+            state: {
+                columns: [
+                    {
+                        field: 'id',
+                        label: 'ID',
+                        min: true
+                    },
+                    {
+                        field: 'name',
+                        label: 'NAME'
+                    },
+                    {
+                        field: 'species',
+                        label: 'SPECIES'
+                    },
+                    {
+                        field: 'diet',
+                        label: 'DIET'
+                    },
+                    {
+                        field: 'habitat',
+                        label: 'HABITAT'
+                    },
+                    {
+                        field: 'enabled',
+                        label: 'Active'
+                    }
+                ],
+                animals: [
+                    {
+                        id: 1,
+                        name: 'African Elephant',
+                        species: 'Loxodonta africana',
+                        diet: 'Herbivore',
+                        habitat: 'Savanna, Forests',
+                        enabled: false
+                    },
+                    {
+                        id: 2,
+                        name: 'Lion',
+                        species: 'Panthera leo',
+                        diet: 'Carnivore',
+                        habitat: 'Savanna, Grassland',
+                        enabled: true
+                    },
+                    {
+                        id: 3,
+                        name: 'Hippopotamus',
+                        species: 'Hippopotamus amphibius',
+                        diet: 'Herbivore',
+                        habitat: 'Riverbanks, Lakes',
+                        enabled: false
+                    }
+                ]
+            },
+            changed (id, value) {
+                const _el = this.state.animals.find(el => el.id === id);
+                if (_el) {
+                    _el.enabled = value;
+                    this.update();
+                }
+            }
+        }
+    </script>
+</index-riot>
