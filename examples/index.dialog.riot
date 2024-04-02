@@ -1,0 +1,39 @@
+<index-riot>
+    <div style="width:800px;padding:20px;">
+        <c-button onclick={ (ev) => update({ active: !state.active, max: false })}>Dialog</c-button> 
+        <c-button onclick={ (ev) => update({ active: !state.active, max: true })}>Max</c-button>
+
+        <c-dialog 
+            title="Dialog" 
+            message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+            active={ state.active }
+            oncancel={ cancel } 
+            onconfirm={ confirm }
+            max={ state.max }
+        />
+    </div>
+    <script>
+        import cButton from "../components/c-button.riot"
+        import cDialog from "../components/c-dialog.riot"
+
+        export default {
+            components: {
+                cDialog,
+                cButton
+            },
+            state: {
+                active: false,
+                left: false,
+                max: false
+            },
+            cancel() {
+                console.log("dialog cancel")
+                this.update({ active: false })
+            },
+            confirm() {
+                console.log("dialog confirm")
+                this.update({ active: false })
+            }
+        }
+    </script>
+</index-riot>

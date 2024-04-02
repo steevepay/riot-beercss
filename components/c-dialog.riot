@@ -1,0 +1,32 @@
+<c-dialog>
+    <dialog class="
+                {props?.active ? 'active ' : null}
+                {props?.blur ? 'overlay blur ' : null}
+                {props?.left ? 'left ' : null}
+                {props?.right ? 'right ' : null}
+                {props?.top ? 'top ' : null}
+                {props?.bottom ? 'bottom ' : null}
+                {props?.max ? 'max ' : null}
+            "
+        >
+        <h5 if={ props?.title }>{ props?.title }</h5>
+        <div>
+            { props?.message }
+            <slot name="body"></slot>
+        </div>
+        <nav class="right-align no-space">
+            <button onclick={ (ev) => clicked(ev, "cancel") } class="transparent link" if={ !props?.disableCancel }>{ props?.cancelText ?? "cancel" }</button>
+            <button onclick={ (ev) => clicked(ev, "confirm") } class="transparent link" if={ !props?.disableConfirm }>{ props?.confirmText ?? "confirm" }</button>
+            <slot name="button"></slot>
+        </nav>
+    </dialog>
+       <script>
+        export default {
+            clicked (e, name) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.root.dispatchEvent(new Event(name));
+            }
+        }
+    </script>
+</c-dialog>
