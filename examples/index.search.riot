@@ -1,0 +1,31 @@
+<index-riot>
+    <div style="width:600px;padding:20px;">
+        <c-search value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } fill="true" max="true" />
+        <c-search value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } outlined="true" large="true" round="true" large="true" />
+    </div>
+    <script>
+        import cSearch from "../components/c-search.riot"
+        import fruits from "./data/fruits.js"
+
+        export default {
+            components: {
+                cSearch
+            },
+            state: {
+                value: "",
+                results: ["Mango", "Strawberries", "Bananas"]
+            },
+            changed (ev) {
+                console.log("change event", ev.target.value);
+                this.update({ 
+                    value   : ev.target.value,
+                    results : fruits.filter((el) => el.toLowerCase().includes(ev.target.value?.toLowerCase()) === true) 
+                })
+            },
+            selected (ev) {
+                console.log("selected event", ev.target.value)
+                this.update({ value: ev.target.value })
+            }
+        }
+    </script>
+</index-riot>

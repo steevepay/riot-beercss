@@ -1,0 +1,46 @@
+<c-search>
+    <div class="field prefix
+        { props?.outlined ? " border" : ''}
+        { props?.round ? " round" : ''}
+        { props?.fill ? " fill" : ''}
+        { props?.small ? " small" : ''}
+        { props?.medium ? " medium" : ''}
+        { props?.large ? " large" : ''}
+        { props?.extra ? " extra" : ''}
+        { props?.error ? " invalid" : '' }
+        ">
+        <progress if={ props?.loading } class="circle"></progress>
+        <i if={ !props?.loading } class="front">{ props?.iconSearch ?  props.iconSearch : "search"}</i>
+        <input type="text" value={ props?.value } />
+        <menu class="{ props?.max ? "max" : "min" }">
+            <div class="field prefix suffix no-margin fixed         
+                            { props?.outlined ? " border" : ''}
+                            { props?.round ? " round" : ''}
+                            { props?.fill ? " fill" : ''}
+                            { props?.small ? " small" : ''}
+                            { props?.medium ? " medium" : ''}
+                            { props?.large ? " large" : ''}
+                            { props?.extra ? " extra" : ''}
+                            { props?.error ? " invalid" : '' }
+                        ">
+                <i class="front">{ props?.iconBack ?  props.iconBack : "arrow_back"}</i>
+                <input type="text" value={ props?.value } />
+                <i class="front">{ props?.iconClose ?  props.iconClose : "close"}</i>
+            </div>
+            <a class="row" each={res in props?.results} onclick={ (ev) => select(ev, res) }>
+                <i>{ res?.icon ?? props?.iconResult ?? 'history' }</i>
+                <div>{ res?.label ?? res?.name ?? res }</div>
+            </a>
+        </menu>
+    </div>
+    <script>
+        export default {
+            select(e, result) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.root.value = result;
+                this.root.dispatchEvent(new Event('select'));
+            }
+        }
+    </script>
+</c-search>
