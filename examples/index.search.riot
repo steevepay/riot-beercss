@@ -1,7 +1,6 @@
 <index-riot>
     <div style="width:600px;padding:20px;">
-        <c-search placeholder="Fruit name..." value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } onclear={ reset } fill="true" max="true" />
-        <c-search placeholder="Fruit name..."  value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } onclear={ reset } outlined="true" large="true" round="true" large="true" />
+        <c-search placeholder="Fruit name..." value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } onclear={ reset } outlined="true" large="true" round="true" fill="true" />
     </div>
     <script>
         import cSearch from "../components/c-search.riot"
@@ -18,18 +17,15 @@
             },
             state: _defaultState,
             changed (ev) {
-                console.log("change event", ev.target.value);
                 this.update({ 
                     value   : ev.target.value,
                     results : fruits.filter((el) => el.toLowerCase().includes(ev.target.value?.toLowerCase()) === true) 
                 })
             },
             selected (ev) {
-                console.log("selected event", ev.target.value)
                 this.update({ value: ev.target.value })
             },
             reset () {
-                console.log("RESET EVENT", _defaultState);
                 this.update(_defaultState)
             }
         }
