@@ -11,7 +11,7 @@
         ">
         <progress if={ props?.loading } class="circle"></progress>
         <i if={ !props?.loading } class="front">{ props?.iconSearch ?  props.iconSearch : "search"}</i>
-        <input type="text" value={ props?.value } />
+        <input type="text" value={ props?.value } placeholder={ props?.placeholder } />
         <menu class="{ props?.max ? "max" : "min" }">
             <div class="field prefix suffix no-margin fixed         
                             { props?.outlined ? " border" : ''}
@@ -24,8 +24,8 @@
                             { props?.error ? " invalid" : '' }
                         ">
                 <i class="front">{ props?.iconBack ?  props.iconBack : "arrow_back"}</i>
-                <input type="text" value={ props?.value } />
-                <i class="front">{ props?.iconClose ?  props.iconClose : "close"}</i>
+                <input type="text" value={ props?.value } placeholder={ props?.placeholder } />
+                <i onclick={ clear } class="front">{ props?.iconClose ?  props.iconClose : "close"}</i>
             </div>
             <a class="row" each={res in props?.results} onclick={ (ev) => select(ev, res) }>
                 <i>{ res?.icon ?? props?.iconResult ?? 'history' }</i>
@@ -40,6 +40,11 @@
                 e.stopPropagation();
                 this.root.value = result;
                 this.root.dispatchEvent(new Event('select'));
+            },
+            clear (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.root.dispatchEvent(new Event('clear'));
             }
         }
     </script>

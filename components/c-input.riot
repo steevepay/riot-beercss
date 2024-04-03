@@ -15,7 +15,7 @@
     ">
         <progress if={ props?.loading } class="circle"></progress>
         <i if={ props?.icon && !props?.loading }>{ props?.icon }</i>
-        <input type={props?.type ?? 'text'} value={ props?.value }>
+        <input type={props?.type ?? 'text'} value={ props?.value } placeholder={ props?.placeholder } >
         <label if={ props?.label }>{ props.label }</label>
         <i if={ props?.iconend && !props?.loadingend }>{ props?.iconend }</i>
         <progress if={ props?.loadingend } class="circle"></progress>
