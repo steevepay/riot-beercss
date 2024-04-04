@@ -1,0 +1,27 @@
+<c-snackbar>
+    <div class="
+            snackbar
+            { props?.active ? 'active ' : null }
+            { props?.top ? 'top ' : null }
+            { props?.bottom ? 'bottom ' : null }
+            { props?.error ? 'error ' : null }
+            { props?.primary ? 'primary ' : null }
+            { props?.secondary ? 'secondary ' : null }
+            { props?.tertiary ? 'tertiary ' : null }
+            { props?.tertiary ? 'tertiary ' : null }
+        
+        ">
+        <i if={ props?.icon }>{props.icon}</i>
+        <span class="max"><slot></slot></span>
+        <a if={ props?.action } onclick={ clicked } class="inverse-link">{ props?.action }</a>
+    </div>
+    <script>
+        export default {
+            clicked (e) {
+                e.preventDefault();
+                e.stopPropagation();
+                this.root.dispatchEvent(new Event("action"));
+            }
+        }
+    </script>
+</c-snackbar>

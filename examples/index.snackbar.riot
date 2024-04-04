@@ -1,0 +1,62 @@
+<index-riot>
+    <div style="width:600px;padding:20px;">
+        <c-button onclick={ () => openSnack("default") } inverse={ true }>Default</c-button>
+        <c-button onclick={ () => openSnack("error") } error={ true }>Error</c-button>
+        <c-button onclick={ () => openSnack("primary") } primary={ true }>Primary</c-button><br/><br/>
+        <c-button onclick={ () => openSnack("secondary") } secondary={ true }>Secondary</c-button>
+        <c-button onclick={ () => openSnack("tertiary") } tertiary={ true }>Tertiary</c-button>
+
+        <c-snackbar 
+            active={ state.active }
+            onaction={ close }
+            error={ state.error } 
+            icon={ state.icon } 
+            action={ state.action }
+            primary={ state.primary }
+            secondary={ state.secondary }
+            tertiary={ state.tertiary }>
+            { state.message }
+        </c-snackbar>
+    </div>
+    <script>
+        import cButton from "../components/c-button.riot"
+        import cSnackbar from "../components/c-snackbar.riot"
+
+        export default {
+            components: {
+                cSnackbar,
+                cButton
+            },
+            state: {
+                active: false,
+                icon: null,
+                message: null,
+                error: null,
+                timeout: null
+            },
+            openSnack(type) {
+                if (this.state.active === true) {
+                    return;
+                }
+                this.update({ 
+                    active: true,
+                    message: type === 'error' ? "Something went wrong." : "Email Archived.",
+                    action: type === 'error' ? "Contact Support" : "Undo",
+                    icon: type === 'error' ? 'error' : 'check',
+                    error: type === 'error',
+                    primary: type === 'primary',
+                    secondary: type === 'secondary',
+                    tertiary: type === 'tertiary',
+                })
+                clearTimeout(this.state.timeout)
+                this.state.timeout = setTimeout(() => {
+                    this.update({ active: false })
+                }, 3000)
+                this.update();
+            },
+            close () {
+                this.update({ active: false })
+            }
+        }
+    </script>
+</index-riot>
