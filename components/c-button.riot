@@ -8,12 +8,10 @@
          { props?.tertiary ? ' tertiary' : null }
          { props?.error ? ' error' : null }
          { props?.inverse ? ' inverse-surface' : null}
-
          { props?.small ? ' small' : null }
          { props?.medium ? ' medium' : null }
          { props?.large ? ' large' : null }
          { props?.extra ? ' extra' : null }
-
          { props?.responsive ? ' responsive' : null }
          { props?.outlined ? ' border' : null }
          { props?.smallround ? ' small-round' : null }
@@ -24,22 +22,20 @@
          { props?.rightround ? ' right-round' : null }
          { props?.topround ? ' top-round' : null }
          { props?.bottomround ? ' bottom-round' : ''}
-
          { props?.vertical ? ' vertical' : null }
-
          { props?.extend ? ' extend' : null }
-
          { props?.smallelevate ? ' small-elevate' : null }
          { props?.mediumelevate ? ' medium-elevate' : null }
          { props?.largeelevate ? ' large-elevate' : null }
-
-         { props?.class }
         "
+        data-ui="btn"
     >
         <img class={props?.inline ? null : "responsive" } if={ props?.img } src={ props.img }>
         <i if={ props?.icon }>{ props.icon }</i>
         <span if={ state.hasText === true }><slot></slot></span>
+        <i if={ props?.iconend }>{ props.iconend }</i>
         <slot name="badge"></slot>
+        <slot name="menu"></slot>
     </button>
     <script>
         export default {
