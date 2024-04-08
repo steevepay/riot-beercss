@@ -15,7 +15,8 @@
     ">
         <progress if={ props?.loading } class="circle"></progress>
         <i if={ props?.icon && !props?.loading }>{ props?.icon }</i>
-        <input type={props?.type ?? 'text'} value={ props?.value } placeholder={ props?.placeholder } >
+        <input if={ props?.type !== 'textarea' } type={props?.type ?? 'text'} value={ props?.value } placeholder={ props?.placeholder } >
+        <textarea if={ props?.type === 'textarea' } value={ props?.value } placeholder={ props?.placeholder }></textarea>
         <label if={ props?.label }>{ props.label }</label>
         <i if={ props?.iconend && !props?.loadingend }>{ props?.iconend }</i>
         <progress if={ props?.loadingend } class="circle"></progress>
