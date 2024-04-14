@@ -1,0 +1,38 @@
+<index-riot>
+    <div style="width:600px;padding:20px;">
+        <c-dialog />
+        <c-button onclick={ confirmDeletion }> Delete File </c-button>
+    </div>
+    <script>
+        import cButton from "../../components/c-button.riot";
+        import cSnackbar from "../../components/c-snackbar.riot";
+        import cDialog from "./c-dialog.riot";
+        
+        import events from "./events.js"
+
+        export default {
+            components: {
+                cButton,
+                cDialog
+            },
+            onMounted() {
+                events.on('delete-file', this.deleteFile);
+            },
+            onUnmounted() {
+                events.off('delete-file', this.deleteFile);
+            },
+            state: {
+                active: false
+            },
+            confirmDeletion () {
+                events.emit('open-modal-validation', { 
+                    message: "Do you confirm you want to delete the file \"2024-04-invoice.pdf\"?",
+                    callbackID: 'delete-file'
+                });
+            },
+            deleteFile () {
+                console.log("FILE DELETED! 🗑️");
+            }
+        }
+    </script>
+</index-riot>

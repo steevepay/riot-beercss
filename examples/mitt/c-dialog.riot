@@ -1,0 +1,64 @@
+<c-dialog>
+    <dialog class="
+                {state.active ? 'active ' : null}
+                {props?.blur ? 'overlay blur ' : null}
+                {props?.left ? 'left ' : null}
+                {props?.right ? 'right ' : null}
+                {props?.top ? 'top ' : null}
+                {props?.bottom ? 'bottom ' : null}
+                {props?.max ? 'max ' : null}
+            "
+        >
+        <h5>{ state.title }</h5>
+        <div>
+            { state.message }
+        </div>
+        <nav class="right-align no-space">
+            <button onclick={ toggleModal } class="transparent link">{ state.cancel }</button>
+            <button onclick={ validateAction } class="transparent link">{ state.validate }</button>
+        </nav>
+    </dialog>
+       <script>
+       import events from './events.js'
+
+        export default {
+            state: {
+                active: false,
+                title: 'Confirmation',
+                message: 'Are you sure?',
+                callbackID : '',
+                args : true,
+                validate : 'Validate',
+                cancel: "Cancel"
+            },
+            onMounted() {
+                events.on('open-modal-validation', this.openModalValidation);
+            },
+            onUnmounted() {
+                events.off('open-modal-validation', this.openModalValidation);
+            },
+            validateAction () {
+                if (this.state.callbackID) {
+                    events.emit(this.state.callbackID, this?.state?.args);
+                }
+                this.toggleModal();
+            },
+            openModalValidation ({ message, callbackID, args }) {
+                this.update({
+                    message,
+                    callbackID,
+                    args: args ?? true
+                })
+                this.toggleModal();
+            },
+            toggleModal() {
+                this.update({ active: !this.state.active })
+                if (this.state.active === true) {
+                    console.log("Modal opened.")
+                } else {
+                    console.log("Modal closed.")
+                }
+            }
+        }
+    </script>
+</c-dialog>

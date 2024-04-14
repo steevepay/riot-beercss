@@ -12,6 +12,7 @@
   "devDependencies": {
     "@riotjs/ssr": "=9.0.0",
     "jsdom": "^24.0.0",
+    "mitt": "^3.0.1",
     "riot": "=9.1.4",
     "rollup-plugin-riot": "=9.0.2",
     "vite": "=5.1.1",
