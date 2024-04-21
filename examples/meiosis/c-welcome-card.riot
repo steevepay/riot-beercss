@@ -1,0 +1,32 @@
+<c-welcome-card>
+    <article class="no-padding border round">
+        <img class="responsive small top-round" src="./examples/data/img-card.png">
+        <div class="padding">
+            <h5>Welcome</h5>
+            <p>Bonjour <b>{state.firstname} {state.lastname}</b> 👋 to our app! We're excited to have you here.Whether you're in finance, marketing, or operations, our app delivers the insights you need to drive growth and stay ahead of the competition.</p>
+            <nav>
+                <button onclick={ editProfile }>Edit Profile</button>
+            </nav>
+        </div>
+    </article>
+    <script>
+        import store from "./store.js";
+
+        const mapToState = (appState, ownState) => { 
+            console.log("COMPONENT", appState, ownState)
+            return { ...ownState, ...appState }
+        };
+        export default store.connect(mapToState)({
+            editProfile () {
+                console.log("EDIT PROFILE", this.state)
+                store.dispatch({
+                    displayForm: true,
+                    firstnameEdit: this.state.firstname,
+                    lastnameEdit: this.state.lastname
+                })
+                console.log("EDIT PROFILE", this.state)
+            }
+        })
+        
+    </script>
+</c-welcome-card>

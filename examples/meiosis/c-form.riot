@@ -1,0 +1,34 @@
+<c-form>
+    <c-dialog active={ state.displayForm } oncancel={ close } onconfirm={ editState }>
+        <template slot="body">
+            <c-input value={ state.firstnameEdit } />
+            <c-input value={ state.lastnameEdit } />
+        </template>
+    </c-dialog>
+    <script>
+        /** State manager **/
+        import store from './store.js';
+        /** Components **/
+        import cInput from '../../components/c-input.riot';
+        import cButton from '../../components/c-button.riot';
+        import cDialog from '../../components/c-dialog.riot';
+
+        const mapToState = (appState, ownState) => ({ ...ownState, ...appState });
+        export default store.connect(mapToState)({
+            components: {
+                cInput,
+                cButton,
+                cDialog
+            },
+            close() {
+                this.update({ displayForm: false })
+            },
+            open() {
+
+            },
+            onConfirm() {
+                
+            }
+        });
+    </script>
+</c-form>

@@ -10,6 +10,7 @@
   "author": "steevepay",
   "license": "ISC",
   "devDependencies": {
+    "@riot-tools/meiosis": "^4.0.0",
     "@riotjs/ssr": "=9.0.0",
     "jsdom": "^24.0.0",
     "mitt": "^3.0.1",
