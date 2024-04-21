@@ -20,9 +20,7 @@
             editProfile () {
                 console.log("EDIT PROFILE", this.state)
                 store.dispatch({
-                    displayForm: true,
-                    firstnameEdit: this.state.firstname,
-                    lastnameEdit: this.state.lastname
+                    displayForm: true
                 })
                 console.log("EDIT PROFILE", this.state)
             }

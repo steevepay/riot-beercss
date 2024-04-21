@@ -1,8 +1,10 @@
 <c-form>
-    <c-dialog active={ state.displayForm } oncancel={ close } onconfirm={ editState }>
+    <c-dialog active={ state.displayForm } oncancel={ close } onconfirm={ confirmEdit }>
         <template slot="body">
-            <c-input value={ state.firstnameEdit } />
-            <c-input value={ state.lastnameEdit } />
+            <h5 style="margin-bottom:15px">Edit Profile</h5>
+            <p>{state.firstnameEdit} {state.lastnameEdit}</p>
+            <c-input value={ state.firstnameEdit } onkeydown={ (ev) => updateInput(ev, 'firstnameEdit') } onchange={ (ev) => updateInput(ev, 'firstnameEdit') } outlined="true" round="true" placeholder="Firstname" />
+            <c-input value={ state.lastnameEdit } onkeydown={ (ev) => updateInput(ev, 'lastnameEdit') } onchange={ (ev) => updateInput(ev, 'lastnameEdit') }  outlined="true" round="true" placeholder="Lastname"  />
         </template>
     </c-dialog>
     <script>
@@ -21,13 +23,17 @@
                 cDialog
             },
             close() {
-                this.update({ displayForm: false })
+                store.dispatch({ displayForm: false })
             },
-            open() {
-
+            updateInput(ev, keyName) {
+                store.dispatch({[keyName]: ev?.target?.value ?? ''})
             },
-            onConfirm() {
-                
+            confirmEdit() {
+                store.dispatch({ 
+                    displayForm: false, 
+                    firstname: this.state.firstnameEdit,
+                    lastname: this.state.lastnameEdit
+                })
             }
         });
     </script>
