@@ -6,7 +6,6 @@ const state = {
   lastname      : 'Wick',
   firstnameEdit : '',
   lastnameEdit  : '',
-  email         : '',
   displayForm   : false
 }
 
@@ -27,5 +26,10 @@ stream.addReducer((newState, oldState) => {
     }
 });
 
-export default stateManager;
+export default { 
+    connect: function (component) {
+        return stateManager.connect((globalState, ownState) => ({ ...ownState, ...globalState }))(component)
+    },
+    dispatch: stateManager.dispatch
+};
 

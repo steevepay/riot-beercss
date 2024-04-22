@@ -15,8 +15,7 @@
         import cButton from '../../components/c-button.riot';
         import cDialog from '../../components/c-dialog.riot';
 
-        const mapToState = (globalState, ownState) => ({ ...ownState, ...globalState });
-        export default store.connect(mapToState)({
+        export default store.connect({
             components: {
                 cInput,
                 cButton,
