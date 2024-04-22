@@ -9,7 +9,6 @@ const state = {
   displayForm   : false
 }
 
-
 /** Create the state manager instance */
 const stateManager = new RiotMeiosis(state, { flushOnRead: false, statesToKeep: 1 });
 
