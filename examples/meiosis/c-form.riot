@@ -1,8 +1,7 @@
 <c-form>
     <c-dialog active={  state.displayForm } oncancel={ close } onconfirm={ confirmEdit }>
         <template slot="body">
-            <h5 style="margin-bottom:15px">Edit Profile</h5>
-            <p>{ state.firstnameEdit} { state.lastnameEdit}</p>
+            <h5 style="margin-bottom:30px">Edit Profile</h5>
             <c-input value={ state.firstnameEdit } onkeyup={ (ev) => updateInput(ev, 'firstnameEdit') } onchange={ (ev) => updateInput(ev, 'firstnameEdit') } outlined="true" round="true" placeholder="Firstname" />
             <c-input value={ state.lastnameEdit } onkeyup={ (ev) => updateInput(ev, 'lastnameEdit') } onchange={ (ev) => updateInput(ev, 'lastnameEdit') }  outlined="true" round="true" placeholder="Lastname"  />
         </template>
