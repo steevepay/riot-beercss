@@ -2,8 +2,8 @@
 import { RiotMeiosis } from '@riot-tools/meiosis';
 
 const state = {
-  firstname     : 'John',
-  lastname      : 'Wick',
+  firstname     : 'Jon',
+  lastname      : 'Snow',
   firstnameEdit : '',
   lastnameEdit  : '',
   displayForm   : false
@@ -27,9 +27,11 @@ stream.addReducer((newState, oldState) => {
 });
 
 export default { 
+    /** Simplifying the connect function for components */
     connect: function (component) {
         return stateManager.connect((globalState, ownState) => ({ ...ownState, ...globalState }))(component)
     },
+    /** Provides the dispatch function to update values */
     dispatch: stateManager.dispatch
 };
 
