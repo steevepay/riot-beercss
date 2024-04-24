@@ -1,0 +1,53 @@
+<index-riot>
+    <router>
+        <nav class="drawer left right-round border">
+            <header>
+                <nav>
+                    <img class="circle" src="./examples/data/img-card.png"/>
+                    <h6>Jon Snow</h6>
+                </nav>
+            </header>
+            <!-- These links will trigger automatically HTML5 history events -->
+            <a href="/">
+                <i>inbox</i>
+                <span class="max">Inbox</span>
+                <b>24</b>
+            </a>
+            <a href="/favorite">
+                <i>favorite</i>
+                <span class="max">Starred</span>
+                <b>3</b>
+            </a>
+            <a href="/sent">
+                <i>send</i>
+                <span class="max">Sent</span>
+                <b>11</b>
+            </a>
+            <div class="medium-divider"></div>
+            <a href="/subscription">
+                <i>rocket</i>
+                <span>Subscription</span>
+            </a>
+            <a href="/settings">
+                <i>settings</i>
+                <span>Settings</span>
+            </a>
+            
+        </nav>
+        <!-- Your application routes will be rendered here -->
+        <span style="display:block;margin-left:350px;margin-top:20px">
+            <route path="/"> <h2>Inbox</h2> </route>
+            <route path="/favorite"> <h2>Starred</h2> </route>
+            <route path="/sent"> <h2>Sent</h2> </route>
+            <route path="/subscription"> <h2>Subscription</h2> </route>
+            <route path="/settings"> <h2>Settings</h2> </route>
+        </span>
+    </router>
+    <script>
+        import { Router, Route } from '@riotjs/route'
+
+        export default {
+            components: { Router, Route }
+        }
+    </script>
+</index-riot>
