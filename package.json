@@ -10,18 +10,16 @@
   "author": "steevepay",
   "license": "ISC",
   "devDependencies": {
-    "@riot-tools/meiosis": "^4.0.0",
-    "@riotjs/route": "^9.2.0",
+    "@riot-tools/meiosis": "=4.0.0",
+    "@riotjs/route": "=9.2.0",
     "@riotjs/ssr": "=9.0.0",
-    "jsdom": "^24.0.0",
-    "mitt": "^3.0.1",
-    "riot": "=9.1.4",
+    "jsdom": "=24.0.0",
+    "mitt": "=3.0.1",
+    "riot": "=9.1.5",
     "rollup-plugin-riot": "=9.0.2",
-    "vite": "=5.1.1",
-    "vitest": "=1.4.0"
-  },
-  "dependencies": {
-    "beercss": "=3.5.1",
+    "vite": "=5.2.10",
+    "vitest": "=1.4.0",
+    "beercss": "=3.5.4",
     "material-dynamic-colors": "=1.1.0"
   }
 }

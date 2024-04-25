@@ -35,7 +35,7 @@
             
         </nav>
         <!-- Your application routes will be rendered here -->
-        <span style="display:block;margin-left:350px;margin-top:20px">
+        <span style="display:block;margin-left:20px;margin-top:20px">
             <route each={ r in state.pages  } path={ r.path }>
                 <span is={r.component}></span>
             </route>
@@ -56,25 +56,19 @@
         export default {
             components: { Router, Route, pInbox, pFavorite, pSent, pSettings, pSubscription, pNotFound },
             state: {
-                pages: pages,
+                pages,
                 showNotFound: false
             },
-            onBeforeMount () {
+            onMounted (props, state) {
                 // ROUTING: create a stream on all routes
                 this.anyRouteStream = route('(.*)')
                 // ROUTING: check any route change to understand if the not found site should be displayed
-                this.anyRouteStream.on.value(this.onAnyRoute)
+                this.anyRouteStream.on.value((path) => {
+                    this.update({ showNotFound: !this.state.pages.some(p => match(path.pathname, toRegexp(p?.path))) })  
+                })
             },
-            onBeforeUnmout() {
+            onUnmounted() {
                 this.anyRouteStream.end()
-            },
-            onAnyRoute(path) {
-                // show the not found page if none of the page paths are matched
-                if (this?.state?.pages && this?.update && path) {
-                    this.update({
-                        showNotFound: !this.state?.pages.some(p => match(path.pathname, toRegexp(p?.path)))
-                    })
-                }
             }
         }
     </script>
