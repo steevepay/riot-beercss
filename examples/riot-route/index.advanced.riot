@@ -1,0 +1,81 @@
+<index-riot>
+    <router>
+        <nav class="drawer left right-round border">
+            <header>
+                <nav>
+                    <img class="circle" src="./examples/data/img-card.png"/>
+                    <h6>Jon Snow</h6>
+                </nav>
+            </header>
+            <!-- These links will trigger automatically HTML5 history events -->
+            <a href="/">
+                <i>inbox</i>
+                <span class="max">Inbox</span>
+                <b>24</b>
+            </a>
+            <a href="/favorite">
+                <i>favorite</i>
+                <span class="max">Starred</span>
+                <b>3</b>
+            </a>
+            <a href="/sent">
+                <i>send</i>
+                <span class="max">Sent</span>
+                <b>11</b>
+            </a>
+            <div class="medium-divider"></div>
+            <a href="/subscription">
+                <i>rocket</i>
+                <span>Subscription</span>
+            </a>
+            <a href="/settings">
+                <i>settings</i>
+                <span>Settings</span>
+            </a>
+            
+        </nav>
+        <!-- Your application routes will be rendered here -->
+        <span style="display:block;margin-left:350px;margin-top:20px">
+            <route each={ r in state.pages  } path={ r.path }>
+                <span is={r.component}></span>
+            </route>
+            <p-not-found if={ state.showNotFound } />
+        </span>
+    </router>
+    <script>
+        import { Router, Route, route, toRegexp, match } from '@riotjs/route';
+        import pages from './routes.js'
+
+        import pInbox from "./pages/p-inbox.riot";
+        import pFavorite from "./pages/p-favorite.riot";
+        import pSent from "./pages/p-sent.riot"
+        import pSettings from "./pages/p-settings.riot"
+        import pSubscription from "./pages/p-subscription.riot"
+        import pNotFound from "./pages/p-not-found.riot"
+
+        export default {
+            components: { Router, Route, pInbox, pFavorite, pSent, pSettings, pSubscription, pNotFound },
+            state: {
+                pages: pages,
+                showNotFound: false
+            },
+            onBeforeMount () {
+                // ROUTING: create a stream on all routes
+                this.anyRouteStream = route('(.*)')
+                // ROUTING: check any route change to understand if the not found site should be displayed
+                this.anyRouteStream.on.value(this.onAnyRoute)
+            },
+            onBeforeUnmout() {
+                this.anyRouteStream.end()
+            },
+            onAnyRoute(path) {
+                // show the not found page if none of the page paths are matched
+                if (this?.state?.pages && this?.update && path) {
+                    this.update({
+                        showNotFound: !this.state?.pages.some(p => match(path.pathname, toRegexp(p?.path)))
+                    })
+                }
+            }
+        }
+    </script>
+</index-riot>

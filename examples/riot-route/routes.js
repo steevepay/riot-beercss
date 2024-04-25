@@ -6,22 +6,28 @@ export default [
       component: 'p-inbox'
     },
     {
-      name     : 'Favorites',
+      name     : 'Starred',
       href     : '/favorite',
       path     : '/favorite(/?[?#].*)?(#.*)?',
       component: 'p-favorite'
     },
     {
-        name     : 'My Profile',
-        href     : '/profile',
-        path     : '/profile(/?[?#].*)?(#.*)?',
-        component: 'p-profile'
+      name     : 'Sent',
+      href     : '/sent',
+      path     : '/sent(/?[?#].*)?(#.*)?',
+      component: 'p-sent'
     },
     {
-      name     : 'Billing',
-      href     : '/billing',
-      path     : '/billing(/?[?#].*)?(#.*)?',
-      component: 'p-billing'
+        name     : 'Subscription',
+        href     : '/subscription',
+        path     : '/subscription(/?[?#].*)?(#.*)?',
+        component: 'p-subscription'
+    },
+    {
+      name     : 'Settings',
+      href     : '/settings',
+      path     : '/settings(/?[?#].*)?(#.*)?',
+      component: 'p-settings'
     }
   ]
   
