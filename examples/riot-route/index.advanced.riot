@@ -18,8 +18,8 @@
         </nav>
         <!-- Your application components/routes will be rendered here -->
         <span style="display:block;margin-left:20px;margin-top:20px">
-            <route each={ r in state.pages  } path={ r.path }>
-                <span is={ r.component } route={ route }></span>
+            <route each={ page in state.pages  } path={ page.path }>
+                <span is={ page.component } route={ route }></span>
             </route>
             <p-not-found if={ state.showNotFound } />
         </span>
