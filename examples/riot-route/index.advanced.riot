@@ -7,37 +7,19 @@
                     <h6>Jon Snow</h6>
                 </nav>
             </header>
-            <!-- These links will trigger automatically HTML5 history events -->
-            <a href="/">
-                <i>inbox</i>
-                <span class="max">Inbox</span>
-                <b>24</b>
-            </a>
-            <a href="/favorite">
-                <i>favorite</i>
-                <span class="max">Starred</span>
-                <b>3</b>
-            </a>
-            <a href="/sent">
-                <i>send</i>
-                <span class="max">Sent</span>
-                <b>11</b>
-            </a>
-            <div class="medium-divider"></div>
-            <a href="/subscription">
-                <i>rocket</i>
-                <span>Subscription</span>
-            </a>
-            <a href="/settings">
-                <i>settings</i>
-                <span>Settings</span>
-            </a>
-            
+            <!-- Navigation bar created dynamically -->
+            <template each={ page in state.pages }>
+                <a href={ page.href }>
+                    <i>{ page.icon }</i>
+                    <span class="max">{ page.name }</span>
+                </a>
+                <div if={ page.separator === true } class="medium-divider"></div>
+            </template>            
         </nav>
-        <!-- Your application routes will be rendered here -->
+        <!-- Your application components/routes will be rendered here -->
         <span style="display:block;margin-left:20px;margin-top:20px">
             <route each={ r in state.pages  } path={ r.path }>
-                <span is={r.component}></span>
+                <span is={ r.component } route={ route }></span>
             </route>
             <p-not-found if={ state.showNotFound } />
         </span>
