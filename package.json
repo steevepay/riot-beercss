@@ -14,14 +14,15 @@
     "@riot-tools/meiosis": "=4.0.0",
     "@riotjs/route": "=9.2.0",
     "@riotjs/ssr": "=9.0.0",
+    "beercss": "=3.5.4",
     "jsdom": "=24.0.0",
+    "material-dynamic-colors": "=1.1.0",
     "mitt": "=3.0.1",
     "riot": "=9.1.6",
+    "riot-beercss": "^1.0.0",
     "rollup-plugin-riot": "=9.0.2",
     "vite": "=5.2.10",
-    "vitest": "=1.4.0",
-    "beercss": "=3.5.4",
-    "material-dynamic-colors": "=1.1.0"
+    "vitest": "=1.4.0"
   },
   "type": "module",
   "files": [
