@@ -12,6 +12,7 @@
         { props?.label ? " label" : '' }
         { props?.icon || props?.loading ? " prefix" : '' }
         { props?.iconend || props?.loadingend  ? " suffix" : '' }
+        { props?.class }
     ">
         <progress if={ props?.loading } class="circle"></progress>
         <i if={ props?.icon && !props?.loading }>{ props?.icon }</i>

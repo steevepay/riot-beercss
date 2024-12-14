@@ -10,12 +10,12 @@ import cInput from '../components/c-input.riot'
 describe('Component c-input', () => {
     it('should render the input without props', () => {
         riot.register('c-input', cInput);
-        const [component] = riot.mount(document.createElement('div'), {}, 'c-input')
+        const [component] = riot.mount(document.createElement('div'), { outlined: true }, 'c-input')
         /**
          * From component.root.innerHTML
          * We get: <div class=" field border           "><input type="text"></div>
          */
-        assert.strictEqual(component.root.querySelector('div').className.trim(), 'field border');
+        assert.strictEqual(component.root.querySelector('div').className.trim(), 'field  border');
         assert.strictEqual(component.root.querySelector('input').type, 'text');
         assert.strictEqual(component.root.querySelector('input').value, '');
         riot.unregister('c-input');
@@ -39,7 +39,7 @@ describe('Component c-input', () => {
 
     it('should render multiple props: label, type, error and round', () => {
         riot.register('c-input', cInput);
-        const _props =  { value: "1234", label: "Password", type: "password", error: "The password is too show, minimum 20 characters." }
+        const _props =  { value: "1234", label: "Password", type: "password", error: "The password is too show, minimum 20 characters.", outlined: true }
         const [component] = riot.mount(document.createElement('div'), _props, 'c-input')
         /**
          * component.root.innerHTML
