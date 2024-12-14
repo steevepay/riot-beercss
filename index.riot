@@ -112,20 +112,10 @@
         <c-input fill="true" round="true" small="true" label="Test" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
     </div>
     <script>
-        import cInput from "./components/c-input.riot";
-        import { cButton } from "riot-beercss";
-        import cButtonGroup from "./components/c-button-group.riot";
-        import cBadge from "./components/c-badge.riot";
-        import cCheckbox from "./components/c-checkbox.riot";
+        import * as components from "./components/index.js";
 
         export default {
-            components: {
-                cInput,
-                cButton,
-                cButtonGroup,
-                cBadge,
-                cCheckbox
-            },
+            components: components,
             state: {
                 firstname: 'Default name',
                 box: true
