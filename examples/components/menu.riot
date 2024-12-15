@@ -1,4 +1,4 @@
-<index-riot>
+<section-menu>
     <div style="width:600px;padding:20px;">
         <c-button iconend="arrow_drop_down" onclick={ (ev) => toggle(ev, 'button') } onfocusout={ () => update({ active: false })}>
             <template slot="default">
@@ -33,7 +33,7 @@
         </c-button>
     </div>
     <script>
-        import cButton from "../components/c-button.riot"
+        import cButton from "../../components/c-button.riot"
 
         export default {
             components: {
@@ -55,4 +55,4 @@
             }
         }
     </script>
-</index-riot>
+</section-menu>

@@ -1,4 +1,4 @@
-<index-riot>
+<section-snackbar>
     <div style="width:600px;padding:20px;">
         <c-button onclick={ () => openSnack("default") } inverse={ true }>Default</c-button>
         <c-button onclick={ () => openSnack("error") } error={ true }>Error</c-button>
@@ -16,8 +16,8 @@
         </c-snackbar>
     </div>
     <script>
-        import cButton from "../components/c-button.riot"
-        import cSnackbar from "../components/c-snackbar.riot"
+        import cButton from "../../components/c-button.riot"
+        import cSnackbar from "../../components/c-snackbar.riot"
 
         export default {
             components: {
@@ -54,4 +54,4 @@
             }
         }
     </script>
-</index-riot>
+</section-snackbar>

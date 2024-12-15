@@ -1,0 +1,71 @@
+<section-tabs>
+        <h3> Tabs as JS Array</h3>
+        <c-tabs active={ state.active } tabs={ state.tabs } onchange={ changed } />
+        <div class="page padding { state.active === 0 ? 'active' : null}" if={ state.active === 0 }>
+            <h5>Tab 1</h5>
+        </div>
+        <div class="page padding { state.active === 1 ? 'active' : null}" if={ state.active === 1 }>
+            <h5>Tab 2</h5>
+        </div>
+        <div class="page padding { state.active === 2 ? 'active' : null}" if={ state.active === 2 }>
+            <h5>Tab 3</h5>
+        </div>
+        <div class="page padding { state.active === 3 ? 'active' : null}" if={ state.active === 3 }>
+            <h5>Tab 4</h5>
+        </div>
+        <hr style="margin: 30px 0px">
+        <h3> Tabs as Riot Slots </h3>
+        <c-tabs>
+            <a class="{state.active === 0 ? 'active' : null}" onclick={ (e) => changed(e, 0) }>
+                <i class="icon">flight</i>
+                Flights
+            </a>
+            <a class="{state.active === 1 ? 'active' : null}" onclick={ (e) => changed(e, 1) }>
+                <i class="icon">card_travel</i>
+                Travel
+            </a>
+            <a class="{state.active === 2 ? 'active' : null}" onclick={ (e) => changed(e, 2) }>
+                <i class="icon">explore</i>
+                Explore
+            </a>
+            <a class="{state.active === 3 ? 'active' : null}" onclick={ (e) => changed(e, 3) }>
+                <img class="circle" src="../favicon.png">
+                BeerCSS
+            </a>
+        </c-tabs> 
+        <div class="page padding { state.active === 0 ? 'active' : null}" if={ state.active === 0 }>
+            <h5>Tab 1</h5>
+        </div>
+        <div class="page padding { state.active === 1 ? 'active' : null}" if={ state.active === 1 }>
+            <h5>Tab 2</h5>
+        </div>
+        <div class="page padding { state.active === 2 ? 'active' : null}" if={ state.active === 2 }>
+            <h5>Tab 3</h5>
+        </div>
+        <div class="page padding { state.active === 3 ? 'active' : null}" if={ state.active === 3 }>
+            <h5>Tab 4</h5>
+        </div>
+    <script>
+        import cTabs from "../../components/c-tabs.riot"
+
+        export default {
+            components: {
+                cTabs
+            },
+            state: {
+                active: 2,
+                tabs: [
+                    { label: "Flights", icon: "flight" },
+                    { label: "Travel", icon: "card_travel" },
+                    { label: "Explore", icon: "explore" },
+                    { label: "BeerCSS", img: "../favicon.png" }
+                ]
+            },
+            changed(ev, index) {
+                this.update({
+                    active: ev?.target?.value ?? index
+                })
+            }
+        }
+    </script>
+</section-tabs>

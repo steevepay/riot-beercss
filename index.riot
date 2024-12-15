@@ -1,134 +1,68 @@
 <index-riot>
-    <div style="width:600px;padding:20px;">
-        <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
+    <nav class="left" style="z-index:100;">
+        <button class="square round extra">
+            <i>search</i>
+        </button>
+        <a each={ page in state.routes.pages }>
+            <i>{ page.icon }</i>
+            <div>{ page.name }</div>
+        </a>
+        <a onmouseover={ () => showDrawer('components') } onmouseout={ hideDrawer }>
+            <i>add_circle</i>
+            <div>Components</div>
+        </a>
+        <a onmouseover={ () => showDrawer('examples') } onmouseout={ hideDrawer }>
+            <i>apps</i>
+            <div>RiotJS Examples</div>
+        </a>
+    </nav>
+    <main class="responsive" style="padding:20px;">
+        <router>
+            <route each={ page in state.routes.pages  } path={ page.path }>
+                <span is={ page.component }></span>
+            </route>
+        </router>
+    </main>
+    <dialog onmouseover={ showDrawer } onmouseout={ hideDrawer } class="left no-padding {state.drawer === true ? 'active' : ''}" style="z-index:99;border-left:1px solid #8080802e;margin-left:80px">
+        <nav class="drawer" >
+            <template if={state.drawerType === 'components'}>
+                <label><b>Material Components</b></label>
+                <a each={ el in state.routes.components } href={ el.href }>{el.name}</a>
+            </template>
+            <template if={state.drawerType === 'examples'}>
+                <label><b>RiotJS Examples</b></label>
+                <a>Routing</a>
+                <a>Mitt Events</a>
+                <a>Meiosis</a>
+                <a>Native Web Components</a>
+            </template>
+        </nav>
+    </dialog>
 
-        <h5 style="margin-bottom:20px">Checkbox</h5>
-
-        
-        <c-checkbox onchange={ (ev) => update({ box: ev.target.value }) } value={ state.box } label={ state.box } />
-        <!-- <c-checkbox onclick={ clicked } label="Enabled" />
-        <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } />
-        <c-checkbox onclick={ clicked } label="Disabled" disabled={ true } value={ true } /> -->
-
-
-
-        <h5 style="margin-bottom:20px">Button</h5>
-        <c-button>Button</c-button>
-        <c-button icon="home">Button</c-button>
-        <c-button img="./favicon.png" inline="true">Button</c-button>
-        <c-button img="./favicon.png">Button</c-button>
-        <br><br>
-        <c-button smallround="true">Button</c-button>
-        <c-button smallround="true" icon="home">Button</c-button>
-        <c-button smallround="true" img="./favicon.png" inline="true">Button</c-button>
-        <c-button smallround="true" img="./favicon.png">Button</c-button>
-        <br><br>
-        <c-button smallround="true" secondary="true" small="true">Button</c-button>
-        <c-button smallround="true" icon="home" secondary="true" small="true">Button</c-button>
-        <c-button smallround="true" img="./favicon.png" inline="true" secondary="true" small="true">Button</c-button>
-        <c-button smallround="true" img="./favicon.png" secondary="true" small="true">Button</c-button>
-        <br><br>
-        <c-button smallround="true" tertiary="true" small="true">Button</c-button>
-        <c-button smallround="true" icon="home" tertiary="true" small="true">Button</c-button>
-        <c-button smallround="true" img="./favicon.png" inline="true" tertiary="true" small="true">Button</c-button>
-        <c-button smallround="true" img="./favicon.png" tertiary="true" small="true">Button</c-button>
-        <br><br>
-        <c-button outlined="true">Button</c-button>
-        <c-button outlined="true" icon="home">Button</c-button>
-        <c-button outlined="true" img="./favicon.png" inline="true">Button</c-button>
-        <c-button outlined="true" img="./favicon.png">Button</c-button>
-        <br><br>
-        <c-button outlined="true" smallround="true">Button</c-button>
-        <c-button outlined="true" smallround="true" icon="home">Button</c-button>
-        <c-button outlined="true" smallround="true" img="./favicon.png" inline="true">Button</c-button>
-        <c-button outlined="true" smallround="true" img="./favicon.png">Button</c-button>
-        <br><br>
-        <c-button circle="true" icon="home">
-            <c-badge slot="badge">1</c-badge>
-        </c-button>
-        <c-button smallround="true" icon="home">
-            Button
-            <c-badge slot="badge" inline="true">1</c-badge>
-        </c-button>
-        <br><br>
-        <c-button smallround="true" icon="home" responsive="true">Button</c-button>
-
-        
-        <h5 style="margin-bottom:20px">FABs</h5>
-        <c-button icon="add" square="true"></c-button>
-        <c-button icon="add" square="true" round="true"></c-button>
-        <c-button icon="add" circle="true"></c-button>
-        <c-button icon="add" circle="true" leftround="true" topround="true"></c-button>
-        <c-button icon="add" circle="true" leftround="true" bottomround="true"></c-button>
-        <c-button icon="add" circle="true" rightround="true" topround="true"></c-button>
-        <c-button icon="add" circle="true" rightround="true" bottomround="true"></c-button>
-        <c-button icon="add" circle="true" leftround="true"></c-button>
-        <c-button icon="add" circle="true" rightround="true" ></c-button>
-        <br><br>
-        <c-button outlined="true" icon="add" square="true"></c-button>
-        <c-button outlined="true" icon="add" square="true" round="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true" leftround="true" topround="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true" leftround="true" bottomround="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true" rightround="true" topround="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true" rightround="true" bottomround="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true" leftround="true"></c-button>
-        <c-button outlined="true" icon="add" circle="true" rightround="true" ></c-button>
-        <br><br>
-        <c-button outlined="true" img="./favicon.png" square="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" square="true" round="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true" leftround="true" topround="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true" leftround="true" bottomround="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true" rightround="true" topround="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true" rightround="true" bottomround="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true" leftround="true"></c-button>
-        <c-button outlined="true" img="./favicon.png" circle="true" rightround="true" ></c-button>
-        <br><br>
-        <c-button icon="add" square="true" extend="true">Add</c-button>
-        <c-button icon="add" square="true" round="true" extend="true">Add</c-button>
-        <c-button icon="add" circle="true" extend="true">Add</c-button>
-        <c-button icon="add" circle="true" leftround="true" topround="true" extend="true">Add</c-button>
-
-        <!-- TODO: Investigate why it does not work
-        <h5 style="margin-bottom:20px">Button Groups</h5>
-
-        <c-button-group>
-            <c-button icon="search" vertical="true" outlined="true" large="true"/>
-            <c-button icon="edit" vertical="true" outlined="true" large="true"/>
-            <c-button icon="home" vertical="true" outlined="true" large="true"/>
-        </c-button-group>
-        -->
-
-        <h5 style="margin-bottom:20px">Input</h5>
-        <c-input label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-        <c-input helper="This is a helper" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>        
-        <c-input error="Something is wrong" helper="This is a helper" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>        
-        <c-input icon="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-        <c-input iconend="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-        <c-input icon="search" iconend="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-        <c-input loading="true" icon="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-        <c-input loadingend="true" iconend="edit" label="Firstname" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-        <c-input fill="true" round="true" small="true" label="Test" value={ state.firstname } onchange={ (ev) => update({ firstname: ev.target.value }) } onkeyup={ (ev) => update({ firstname: ev.target.value }) }></c-input>
-    </div>
     <script>
-        import * as components from "./components/index.js";
+        import routes from './routes.js'
+        import { Router, Route } from '@riotjs/route'
+        import pHome from "./p-home.riot";
 
         export default {
-            components: components,
+            components: {
+                pHome,
+                Router,
+                Route,
+            },
             state: {
-                firstname: 'Default name',
-                box: true
+                routes,
+                drawer: false,
+                drawerType: '',
             },
-            clicked (ev) {
-                // ev.preventDefault();
-                // ev.stopPropagation();
-                // console.log("clicked", ev.target.value, ev.target.tagName);
-            // this.update({ box: ev.target.value === 'false' ? true : false })
+            showDrawer(type) {
+                this.update({ drawer: true, ...(typeof type === 'string' && type.length > 0 ? { drawerType: type } : {}) });
             },
-            changed (ev) {
-                // this.update({ box: ev.target.value  });
+            hideDrawer() {
+                this.update({ drawer: false });
             }
         }
     </script>
+    <style>
+    </style>
 </index-riot>

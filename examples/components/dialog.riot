@@ -1,4 +1,4 @@
-<index-riot>
+<section-dialog>
     <div style="width:800px;padding:20px;">
         <c-button onclick={ (ev) => update({ active: !state.active, max: false })}>Dialog</c-button> 
         <c-button onclick={ (ev) => update({ active: !state.active, max: true })}>Max</c-button>
@@ -13,8 +13,8 @@
         />
     </div>
     <script>
-        import cButton from "../components/c-button.riot"
-        import cDialog from "../components/c-dialog.riot"
+        import cButton from "../../components/c-button.riot"
+        import cDialog from "../../components/c-dialog.riot"
 
         export default {
             components: {
@@ -36,4 +36,4 @@
             }
         }
     </script>
-</index-riot>
+</section-dialog>

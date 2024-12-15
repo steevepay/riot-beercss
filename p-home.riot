@@ -1,0 +1,23 @@
+<p-home>
+        <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>        
+    <script>
+        import * as components from "./components/index.js";
+
+        export default {
+            components: components,
+            state: {
+                firstname: 'Default name',
+                box: true
+            },
+            clicked (ev) {
+                // ev.preventDefault();
+                // ev.stopPropagation();
+                // console.log("clicked", ev.target.value, ev.target.tagName);
+            // this.update({ box: ev.target.value === 'false' ? true : false })
+            },
+            changed (ev) {
+                // this.update({ box: ev.target.value  });
+            }
+        }
+    </script>
+</p-home>

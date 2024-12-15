@@ -1,0 +1,16 @@
+<section-checkboxes>
+        <h4 id="checkboxes">Checkboxes</h4>
+        <div class="medium-space"></div>
+
+
+        <c-checkbox onchange={ (ev) => update({ box: ev.target.value }) } value={ state.box } label={ state.box } />
+        <script>
+        import cCheckbox from "../../components/c-checkbox.riot"
+
+        export default {
+            components: {
+                cCheckbox
+            },
+        }
+    </script>
+</section-checkboxes>

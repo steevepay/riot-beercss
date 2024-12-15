@@ -1,4 +1,4 @@
-<index-riot>
+<section-table>
     <div style="width:800px;padding:20px;">
         <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
         <c-table items={ state.animals } columns={ state.columns } footer={ true } stripes={ true }>
@@ -13,14 +13,15 @@
                 <c-checkbox if={ column === 'enabled' } value={ value } onchange={ (ev) => changed( item.id, ev.target.value ) } />
             </template>
         </c-table>
+        <p>Selected: {state.animals.filter((el => el.enabled === true)).reduce((acc, value, i, list) => acc += value.name + (i + 1 !== list.length ? ', ' : ''), '' )}</p>
     </div>
     <script>
-        import cChip from "../components/c-chip.riot"
-        import cCheckbox from "../components/c-checkbox.riot"
+        import cChip from "../../components/c-chip.riot"
+        import cCheckbox from "../../components/c-checkbox.riot"
 
-        import cIcon from "../components/c-icon.riot"
+        import cIcon from "../../components/c-icon.riot"
 
-        import cTable from "../components/c-table.riot"
+        import cTable from "../../components/c-table.riot"
 
         export default {
             components: {
@@ -93,4 +94,4 @@
             }
         }
     </script>
-</index-riot>
+</section-table>

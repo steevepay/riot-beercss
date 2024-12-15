@@ -1,10 +1,10 @@
-<index-riot>
+<section-search>
     <div style="width:600px;padding:20px;">
         <c-search placeholder="Fruit name..." value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } onclear={ reset } outlined="true" large="true" round="true" fill="true" />
     </div>
     <script>
-        import cSearch from "../components/c-search.riot"
-        import fruits from "./data/fruits.js"
+        import cSearch from "../../components/c-search.riot"
+        import fruits from "../assets/fruits.js"
 
         const _defaultState = {
             value: "",
@@ -30,4 +30,4 @@
             }
         }
     </script>
-</index-riot>
+</section-search>
