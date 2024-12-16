@@ -1,13 +1,20 @@
 <p-home>
-        <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>        
+        <h2 style="margin-bottom:20px">RiotJS Material Components</h2>
+        <section each={ el in state.routes.components  } is={ el.section }></section>
     <script>
-        import * as components from "./components/index.js";
+        // import * as components from "./components/index.js";
+        import * as componentsSection from "./examples/components/index.js"
+        // import sButtons from "./examples/components/s-buttons.riot"
+        import routes from './routes.js'
 
         export default {
-            components: components,
+            components: {
+                ...componentsSection
+            },
             state: {
                 firstname: 'Default name',
-                box: true
+                box: true,
+                routes: routes
             },
             clicked (ev) {
                 // ev.preventDefault();

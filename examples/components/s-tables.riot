@@ -1,20 +1,20 @@
-<section-table>
-    <div style="width:800px;padding:20px;">
-        <h4 style="margin-bottom:20px">Riot + BeerCSS</h4>
-        <c-table items={ state.animals } columns={ state.columns } footer={ true } stripes={ true }>
-            <template slot="header">
-                { column.label } <c-icon tiny="true" if={ column.field === 'name' }>close</c-icon>
-            </template> 
-            <template slot="item">
-                <template if={ column !== 'diet' && column !== 'enabled' }> { value }</template>
-                <c-chip if={ column === 'diet' } round="true">
-                    { item.diet }
-                </c-chip>
-                <c-checkbox if={ column === 'enabled' } value={ value } onchange={ (ev) => changed( item.id, ev.target.value ) } />
-            </template>
-        </c-table>
-        <p>Selected: {state.animals.filter((el => el.enabled === true)).reduce((acc, value, i, list) => acc += value.name + (i + 1 !== list.length ? ', ' : ''), '' )}</p>
-    </div>
+<s-tables>
+    <h4 id="tables">Tables</h4>
+    <div class="medium-space"></div>
+    <c-table items={ state.animals } columns={ state.columns } footer={ true } stripes={ true }>
+        <template slot="header">
+            { column.label } <c-icon tiny="true" if={ column.field === 'name' }>close</c-icon>
+        </template> 
+        <template slot="item">
+            <template if={ column !== 'diet' && column !== 'enabled' }> { value }</template>
+            <c-chip if={ column === 'diet' } round="true">
+                { item.diet }
+            </c-chip>
+            <c-checkbox if={ column === 'enabled' } value={ value } onchange={ (ev) => changed( item.id, ev.target.value ) } />
+        </template>
+    </c-table>
+    <p>Selected: {state.animals.filter((el => el.enabled === true)).reduce((acc, value, i, list) => acc += value.name + (i + 1 !== list.length ? ', ' : ''), '' )}</p>
+    <div class="large-space"></div>
     <script>
         import cChip from "../../components/c-chip.riot"
         import cCheckbox from "../../components/c-checkbox.riot"
@@ -94,4 +94,4 @@
             }
         }
     </script>
-</section-table>
+</s-tables>

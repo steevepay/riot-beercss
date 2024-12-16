@@ -1,17 +1,17 @@
-<section-dialog>
-    <div style="width:800px;padding:20px;">
-        <c-button onclick={ (ev) => update({ active: !state.active, max: false })}>Dialog</c-button> 
-        <c-button onclick={ (ev) => update({ active: !state.active, max: true })}>Max</c-button>
-
-        <c-dialog 
-            title="Dialog" 
-            message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
-            active={ state.active }
-            oncancel={ cancel } 
-            onconfirm={ confirm }
-            max={ state.max }
-        />
-    </div>
+<s-dialog>
+    <h4 id="dialogs">Dialogs</h4>
+    <div class="medium-space"></div>
+    <c-button onclick={ (ev) => update({ active: !state.active, max: false })}>Dialog</c-button> 
+    <c-button onclick={ (ev) => update({ active: !state.active, max: true })}>Max</c-button>
+    <div class="large-space"></div>
+    <c-dialog 
+        title="Dialog" 
+        message="Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua."
+        active={ state.active }
+        oncancel={ cancel } 
+        onconfirm={ confirm }
+        max={ state.max }
+    />
     <script>
         import cButton from "../../components/c-button.riot"
         import cDialog from "../../components/c-dialog.riot"
@@ -36,4 +36,4 @@
             }
         }
     </script>
-</section-dialog>
+</s-dialog>

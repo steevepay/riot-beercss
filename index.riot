@@ -3,7 +3,7 @@
         <button class="square round extra">
             <i>search</i>
         </button>
-        <a each={ page in state.routes.pages }>
+        <a each={ page in state.routes.pages } href={ page.href }>
             <i>{ page.icon }</i>
             <div>{ page.name }</div>
         </a>
@@ -11,10 +11,14 @@
             <i>add_circle</i>
             <div>Components</div>
         </a>
-        <a onmouseover={ () => showDrawer('examples') } onmouseout={ hideDrawer }>
+        <a onmouseover={ () => showDrawer('style') } onmouseout={ hideDrawer }>
+            <i>palette</i>
+            <div>Styles</div>
+        </a>
+        <!-- <a onmouseover={ () => showDrawer('examples') } onmouseout={ hideDrawer }>
             <i>apps</i>
             <div>RiotJS Examples</div>
-        </a>
+        </a> -->
     </nav>
     <main class="responsive" style="padding:20px;">
         <router>
@@ -27,7 +31,12 @@
         <nav class="drawer" >
             <template if={state.drawerType === 'components'}>
                 <label><b>Material Components</b></label>
-                <a each={ el in state.routes.components } href={ el.href }>{el.name}</a>
+                <a each={ el in state.routes.components } href={ el.href }>{ el.name }</a> 
+            </template>
+            <template if={state.drawerType === 'style'}>
+                <label><b>Styles</b></label>
+                <a>Colors</a>
+                <a>Dark/Light</a>
             </template>
             <template if={state.drawerType === 'examples'}>
                 <label><b>RiotJS Examples</b></label>

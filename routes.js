@@ -22,9 +22,9 @@ export default {
         section: 's-buttons'
     },
     {
-        name: "Checkbox",
-        href: "/#checkbox",
-        path: "/#checkbox",
+        name: "Checkboxes",
+        href: "/#checkboxes",
+        path: "/#checkboxes",
         section: 's-checkboxes'
     },
     {
@@ -36,52 +36,66 @@ export default {
     {
         name: "Dialogs",
         href: "/#dialogs",
-        path: "/#dialogs"
+        path: "/#dialogs",
+        section: 's-dialogs'
     },
     {
-        name: "Icon",
-        href: "/#icon",
-        path: "/#icon"
+        name: "Icons",
+        href: "/#icons",
+        path: "/#icons",
+        section: 's-icons'
     },
     {
         name: "Inputs",
         href: "/#inputs",
-        path: "/#inputs"
+        path: "/#inputs",
+        section: 's-inputs'
     },
     {
         name: "Radios",
         href: "/#radios",
-        path: "/#radios"
+        path: "/#radios",
+        section: 's-radios'
     },
-    {
-        name: "Switches",
-        href: "/#switches",
-        path: "/#switches"
-    },
+    // {
+    //     name: "Switches",
+    //     href: "/#switches",
+    //     path: "/#switches"
+    // },
     {
         name: "Snackbars",
-        href: "/#snackbars",
-        path: "/#snackbars"
+        href: "/#snackbar",
+        path: "/#snackbar",
+        section: 's-snackbar'
     },
-    {
-        name: "Selects",
-        href: "/#selects",
-        path: "/#selects"
-    },
+    // {
+    //     name: "Selects",
+    //     href: "/#selects",
+    //     path: "/#selects"
+    // },
     {
         name: "Search",
         href: "/#search",
-        path: "/#search"
+        path: "/#search",
+        section: 's-search'
+    },
+    {
+        name: "Stepper",
+        href: "/#stepper",
+        path: "/#stepper",
+        section: 's-stepper'
     },
     {
         name: "Tabs",
         href: "/#tabs",
-        path: "/#tabs"
+        path: "/#tabs",
+        section: 's-tabs'
     },
     {
         name: "Tables",
         href: "/#tables",
-        path: "/#tables"
+        path: "/#tables",
+        section: 's-tables'
     },
   ]
 };

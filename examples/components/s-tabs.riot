@@ -1,5 +1,7 @@
-<section-tabs>
-        <h3> Tabs as JS Array</h3>
+<s-tabs>
+        <h4 id="tabs">Tabs</h4>
+        <div class="medium-space"></div>
+        <h6> Tabs as JS Array</h6>
         <c-tabs active={ state.active } tabs={ state.tabs } onchange={ changed } />
         <div class="page padding { state.active === 0 ? 'active' : null}" if={ state.active === 0 }>
             <h5>Tab 1</h5>
@@ -14,7 +16,7 @@
             <h5>Tab 4</h5>
         </div>
         <hr style="margin: 30px 0px">
-        <h3> Tabs as Riot Slots </h3>
+        <h6> Tabs as Riot Slots </h6>
         <c-tabs>
             <a class="{state.active === 0 ? 'active' : null}" onclick={ (e) => changed(e, 0) }>
                 <i class="icon">flight</i>
@@ -45,6 +47,7 @@
         <div class="page padding { state.active === 3 ? 'active' : null}" if={ state.active === 3 }>
             <h5>Tab 4</h5>
         </div>
+        <div class="large-space"></div>
     <script>
         import cTabs from "../../components/c-tabs.riot"
 
@@ -68,4 +71,4 @@
             }
         }
     </script>
-</section-tabs>
+</s-tabs>

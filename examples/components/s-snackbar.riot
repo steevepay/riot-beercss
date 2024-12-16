@@ -1,20 +1,22 @@
-<section-snackbar>
-    <div style="width:600px;padding:20px;">
-        <c-button onclick={ () => openSnack("default") } inverse={ true }>Default</c-button>
-        <c-button onclick={ () => openSnack("error") } error={ true }>Error</c-button>
-        <c-button onclick={ () => openSnack("primary") } primary={ true }>Primary</c-button>
+<s-snackbar>
+    <h4 id="snackbar">Snackbar</h4>
+    <div class="medium-space"></div>
+    
+    <c-button onclick={ () => openSnack("default") } inverse={ true }>Default</c-button>
+    <c-button onclick={ () => openSnack("error") } error={ true }>Error</c-button>
+    <c-button onclick={ () => openSnack("primary") } primary={ true }>Primary</c-button>
 
-        <c-snackbar 
-            active={ state.active }
-            onaction={ close }
-            error={ state.error } 
-            icon={ state.icon } 
-            action={ state.action }
-            primary={ state.primary }
-        >
-            { state.message }
-        </c-snackbar>
-    </div>
+    <c-snackbar 
+        active={ state.active }
+        onaction={ close }
+        error={ state.error } 
+        icon={ state.icon } 
+        action={ state.action }
+        primary={ state.primary }
+    >
+        { state.message }
+    </c-snackbar>
+    <div class="large-space"></div>
     <script>
         import cButton from "../../components/c-button.riot"
         import cSnackbar from "../../components/c-snackbar.riot"
@@ -54,4 +56,4 @@
             }
         }
     </script>
-</section-snackbar>
+</s-snackbar>

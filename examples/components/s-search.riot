@@ -1,7 +1,8 @@
-<section-search>
-    <div style="width:600px;padding:20px;">
-        <c-search placeholder="Fruit name..." value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } onclear={ reset } outlined="true" large="true" round="true" fill="true" />
-    </div>
+<s-search>
+    <h4 id="search">Search</h4>
+    <div class="medium-space"></div>
+    <c-search placeholder="Fruit name..." value={ state.value } onchange={ changed } onkeyup={ changed } results={ state.results } onselect={ selected } onclear={ reset } outlined="true" large="true" round="true" fill="true" />
+    <div class="large-space"></div>
     <script>
         import cSearch from "../../components/c-search.riot"
         import fruits from "../assets/fruits.js"
@@ -30,4 +31,4 @@
             }
         }
     </script>
-</section-search>
+</s-search>
