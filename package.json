@@ -12,16 +12,16 @@
   "license": "ISC",
   "devDependencies": {
     "@riot-tools/meiosis": "=4.0.0",
-    "@riotjs/route": "=9.2.1",
+    "@riotjs/route": "=9.2.2",
     "@riotjs/ssr": "=9.0.0",
-    "beercss": "=3.7.14",
-    "jsdom": "=25.0.1",
+    "beercss": "=3.9.6",
+    "jsdom": "=26.0.0",
     "material-dynamic-colors": "=1.1.2",
     "mitt": "=3.0.1",
-    "riot": "=9.4.4",
+    "riot": "=9.4.5",
     "rollup-plugin-riot": "=9.0.2",
-    "vite": "=6.0.3",
-    "vitest": "=2.1.8"
+    "vite": "=6.2.0",
+    "vitest": "=3.0.7"
   },
   "type": "module",
   "files": [
